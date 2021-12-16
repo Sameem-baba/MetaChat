@@ -11,6 +11,22 @@ function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
 
+    const logup = () => {
+        try {
+            signup(emailRef.current.value, passwordRef.current.value, emailRef.current.value)
+        } catch (err) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+    }
+
+    const signIn = () => {
+        try {
+            login(emailRef.current.value, passwordRef.current.value)
+        } catch (err) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+    }
+
     return (
         <div
             className="bg-[#021b39] transition-all duration-700 ease-in-out relative"
@@ -61,14 +77,14 @@ function Login() {
                         <button
                             className='border-2 border-green-500 rounded-full px-12 py-2 inline-block text-white font-semibold hover:bg-yellow-500 hover:text-white'
                             type='submit'
-                            onClick={() => login(emailRef.current.value, passwordRef.current.value)}
+                            onClick={signIn}
                         >
                             Sign In
                         </button>
                         <button
                             className='border-2 border-green-500 rounded-full px-12 py-2 inline-block text-white font-semibold hover:bg-yellow-500 hover:text-white'
                             type='submit'
-                            onClick={() => signup(emailRef.current.value, passwordRef.current.value, emailRef.current.value)}
+                            onClick={logup}
                         >
                             Sign Up Now
                         </button>
