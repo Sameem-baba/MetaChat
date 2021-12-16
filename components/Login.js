@@ -61,7 +61,7 @@ function Login() {
                         <button
                             className='border-2 border-green-500 rounded-full px-12 py-2 inline-block text-white font-semibold hover:bg-yellow-500 hover:text-white'
                             type='submit'
-                            onClick={() => login(emailRef, passwordRef)}
+                            onClick={() => login(emailRef.current.value, passwordRef.current.value)}
                         >
                             Sign In
                         </button>
