@@ -22,8 +22,8 @@ function Login() {
     const signIn = async () => {
         try {
             await login(emailRef.current.value, passwordRef.current.value)
-        } catch (err) {
-            alert("Error: " + err.code + " " + err.message);
+        } catch (error) {
+            alert("Error: " + error.code + " " + error.message);
         }
     }
 
