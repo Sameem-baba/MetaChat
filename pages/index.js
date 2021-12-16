@@ -24,7 +24,7 @@ export default function Home() {
 
       <main className="flex flex-col items-center justify-center space-y-4 bg-black h-screen">
         <h1 className='text-white '>Welcome to the Metaverse, {user.get("ethAddress")}</h1>
-        <buttton className="text-white bg-yellow-500 p-5 rounded-lg" onClick={logout}>Logout</buttton>
+        <buttton className="text-white bg-yellow-500 p-5 rounded-lg cursor-pointer" onClick={logout}>Logout</buttton>
       </main>
     </div>
   )
