@@ -16,7 +16,7 @@ function Login() {
             className="bg-[#021b39] transition-all duration-700 ease-in-out relative"
         >  
             <Particles params={Config} className="w-full h-screen z-0" />
-            <div className="absolute items-center w-full flex flex-col top-28 space-y-4">
+            <div className="absolute items-center w-full flex flex-col top-24 space-y-4">
                 <motion.div className="" initial="hidden" animate="visible" variants={{
                     hidden: {
                         scale: .8,
