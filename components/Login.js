@@ -11,19 +11,19 @@ function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    const logup = () => {
+    const logup = async () => {
         try {
-            signup(emailRef.current.value, passwordRef.current.value, emailRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value, emailRef.current.value)
         } catch (err) {
-            alert("Error: " + error.code + " " + error.message);
+            alert("Error: " + err.code + " " + err.message);
         }
     }
 
-    const signIn = () => {
+    const signIn = async () => {
         try {
-            login(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
         } catch (err) {
-            alert("Error: " + error.code + " " + error.message);
+            alert("Error: " + err.code + " " + err.message);
         }
     }
 
