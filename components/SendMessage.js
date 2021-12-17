@@ -78,7 +78,7 @@ function SendMessage({ endofMessagesRef }) {
         setTimeout(() => {
             stopTyping();
             setOtherUserTyping(false);
-        }, 10000)
+        }, 800)
     }, [otherUserTyping]);
 
     useEffect(() => subscribeToTyping(), [])
@@ -95,7 +95,7 @@ function SendMessage({ endofMessagesRef }) {
 
             <button
                 type="submit"
-                className="font-bold bg-purple-500 rounded-full p-3 items-center"
+                className="font-bold bg-gradient-to-tr from-cyan-400 to-purple-500 rounded-full p-3 items-center"
                 onClick={sendMessage}
             >
                 <PaperAirplaneIcon className="h-5 w-5 hover:rotate-45 transition-all duration-300 ease-in-out"/>
