@@ -12,19 +12,15 @@ function Login() {
     const passwordRef = useRef();
 
     const logup = async () => {
-        try {
-            await signup(emailRef.current.value, passwordRef.current.value, emailRef.current.value)
-        } catch (err) {
-            alert("Error: " + err.code + " " + err.message);
-        }
+        await signup(emailRef.current.value, passwordRef.current.value, emailRef.current.value)
+            .then(() => { })
+            .catch(error => alert(error.message))
     }
 
     const signIn = async () => {
-        try {
-            await login(emailRef.current.value, passwordRef.current.value)
-        } catch (error) {
-            alert("Error: " + error.code + " " + error.message);
-        }
+        await login(emailRef.current.value, passwordRef.current.value)
+            .then(() => { })
+            .catch((error) => alert(error.message))
     }
 
     return (
@@ -43,7 +39,7 @@ function Login() {
                         scale: 1,
                         opacity: 1,
                         transition: {
-                            delay: .4,
+                            delay: .8,
                         }
                     }
                 }}>
@@ -53,43 +49,6 @@ function Login() {
                         width={200}
                     />
                 </motion.div>
-                
-                <div className='flex flex-col items-center '>
-                    <div className='bg-gray-100 rounded-lg w-64 p-2 flex items-center mb-3'>
-                        <input
-                            ref={emailRef}
-                            type="email"
-                            placeholder='Email'
-                            className='bg-gray-100 focus:outline-none flex-1'
-                        />
-                    </div>
-
-                    <div className='bg-gray-100 rounded-lg w-64 p-2 flex items-center'>
-                        <input
-                            ref={passwordRef}
-                            type="password"
-                            name='password'
-                            placeholder='Password' className='bg-gray-100 focus:outline-none flex-1'
-                        />
-                    </div>
-                            
-                    <div className='mt-3 flex flex-col space-y-4'>
-                        <button
-                            className='border-2 border-green-500 rounded-full px-12 py-2 inline-block text-white font-semibold hover:bg-yellow-500 hover:text-white'
-                            type='submit'
-                            onClick={signIn}
-                        >
-                            Sign In
-                        </button>
-                        <button
-                            className='border-2 border-green-500 rounded-full px-12 py-2 inline-block text-white font-semibold hover:bg-yellow-500 hover:text-white'
-                            type='submit'
-                            onClick={logup}
-                        >
-                            Sign Up Now
-                        </button>
-                    </div>
-                </div>
                 <button
                     className="bg-yellow-500 rounded-lg p-5 font-bold animate-pulse "
                     onClick={authenticate}
@@ -103,6 +62,8 @@ function Login() {
                 >
                     Login to the METAVERSE with Wallet Connect
                 </button>
+
+                <p className="font-semibold text-white text-xl">Don't Have A Wallet? <span className="font-light border-b cursor-pointer">Click here</span></p>
             </div>
         </div>
     )

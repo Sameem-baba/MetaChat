@@ -2,13 +2,23 @@ import Head from 'next/head'
 import Login from '../components/Login'
 import { useMoralis } from 'react-moralis';
 import Loader from '../components/Loader';
+import Authenticate from '../components/Authenticate';
+import Header from '../components/Header';
+import Messages from '../components/Messages';
+import Modal from '../components/Modal';
+import Modaluser from '../components/Modaluser';
 
 export default function Home() {
-  const { isAuthenticated, logout, isInitializing, user } = useMoralis();
+  const { isAuthenticated, isInitializing, isAuthenticating } = useMoralis();
 
 
   if (!isAuthenticated) {
     return <Login />
+  }
+
+  
+  if (isAuthenticating) {
+    return <Authenticate />
   }
 
   if (isInitializing) {
@@ -16,16 +26,22 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen">
+    <div className="h-screen overflow-y-scroll scrollbar-thumb-cyan-400 scrollbar-thin  bg-gradient-to-b from-black to-purple-900 overflow-hidden">
       <Head>
         <title>Web 3.0</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="max-w-screen-2xl mx-auto">
+        {/* Header */}
+        <Header />
 
-      <main className="flex flex-col items-center justify-center space-y-4 bg-black h-screen">
-        <h1 className='text-white '>Welcome to the Metaverse, {user?.get("username")}</h1>
-        <buttton className="text-white bg-yellow-500 p-5 rounded-lg cursor-pointer" onClick={logout}>Logout</buttton>
-      </main>
+        {/* Messages */}
+        <Messages />
+
+        <Modal />
+
+        <Modaluser />
+      </div>
     </div>
   )
 }
