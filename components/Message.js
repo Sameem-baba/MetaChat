@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react';
 
 function Message({ message }) {
     const { user } = useMoralis();
-    const isUserMessage = message.get("username") === user.get("username");
+    const isUserMessage = message.get("ethAddress") === user.get("ethAddress");
 
     return (
         <div className={`flex items-end space-x-2 relative ${
