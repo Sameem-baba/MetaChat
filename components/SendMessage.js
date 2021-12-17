@@ -78,7 +78,7 @@ function SendMessage({ endofMessagesRef }) {
         setTimeout(() => {
             stopTyping();
             setOtherUserTyping(false);
-        }, 2000)
+        }, 5000)
     }, [otherUserTyping]);
 
     useEffect(() => subscribeToTyping(), [])
