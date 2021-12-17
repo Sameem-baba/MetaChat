@@ -6,11 +6,11 @@ import { modaluserState } from "../atoms/ModaluserAtom";
 
 function Modaluser() {
     const [opel, setOpel] = useRecoilState(modaluserState)
-    const usernameRef = useRef(null);
+    const [username, setUsername] = useState("");
     const [loading, setLoading] = useState(false);
     const { user, setUserData } = useMoralis();
 
-    const setUsername = () => {
+    const updateUsername = () => {
         if (loading) return;
 
         setLoading(true);
@@ -80,14 +80,15 @@ function Modaluser() {
                                             as='h3'
                                             className='text-lg leading-6 font-medium text-gray-900'
                                         >
-                                            Upload a Photo
+                                            Enter a username
                                         </Dialog.Title>
 
                                         <div className='mt-2'>
                                             <input
                                                 className='border-none outline-none focus:ring-0 w-full text-center'
                                                 type='text'
-                                                ref={usernameRef}
+                                                value={username}
+                                                onChange={(e) => setUsername(e.target.value)}
                                                 placeholder={`Enter your new Username (current - ${user.getUsername()})`}
                                             />
                                         </div>
@@ -98,12 +99,12 @@ function Modaluser() {
                                 <div className='mt-5 sm:mt-6'>
                                     <button
                                         type='button'
-                                        disabled={!usernameRef.current?.value}
+                                        disabled={!username}
                                         className='inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4
                                         py-2 bg-gradient-to-tr from-cyan-400 to-purple-400 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2
                                         focus:ring-offset-2 focus:ring-purple-500 sm:text-sm disabled:bg-gray-300
                                         disabled:cursor-not-allowed disabled:hover:bg-gray-300'
-                                        onClick={setUsername}
+                                        onClick={updateUsername}
                                         
                                     >
                                         {loading ? "Uploading..." : "Update Username"}
