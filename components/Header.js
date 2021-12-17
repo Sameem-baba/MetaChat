@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useMoralis } from "react-moralis";
 import Avatar from "./Avatar";
 import ChangeProfile from "./ChangeProfile";
@@ -7,7 +8,7 @@ function Header() {
     const { user } = useMoralis();
 
     return (
-        <div className="sticky top-0 bg-black shadow-sm p-5 z-50 text-purple-400 border-b-2 border-purple-500">
+        <div className={`sticky top-3 m-5 bg-gradient-to-tl from-cyan-400 to-purple-400 p-5 h-full rounded-xl shadow-2xl z-50 text-purple-500 border-b-2 border-purple-500`}>
             <div className="grid grid-cols-5 lg:grid-cols-6 items-end lg:items-center">
                 <div className="relative h-24 w-24 mx-auto hidden lg:inline-grid">
                     <Image

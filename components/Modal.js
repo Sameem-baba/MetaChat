@@ -145,8 +145,8 @@ function Modal() {
                                         type='button'
                                         disabled={!selectedFile}
                                         className='inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4
-                                        py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2
-                                        focus:ring-offset-2 focus:ring-red-500 sm:text-sm disabled:bg-gray-300
+                                        py-2 bg-gradient-to-tr from-cyan-400 to-purple-400 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2
+                                        focus:ring-offset-2 focus:ring-purple-500 sm:text-sm disabled:bg-gray-300
                                         disabled:cursor-not-allowed disabled:hover:bg-gray-300'
                                         onClick={uploadProfile}
                                         

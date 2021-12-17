@@ -10,7 +10,7 @@ function Loader() {
         border-color: red;
     `;
     return (
-        <div className="flex bg-black h-screen flex-col items-center pt-16 justify-center space-y-5">
+        <div className="flex bg-gradient-to-tr from-cyan-400 to-purple-400 h-screen flex-col items-center pt-16 justify-center space-y-5">
             <Image
                 src="https://links.papareact.com/3pi"
                 className="object-cover rounded-full"
