@@ -10,7 +10,7 @@ function Avatar({ username, logoutOnpress }) {
         <div >
             <Image
                 className="bg-black rounded-full cursor-pointer hover:opacity-75"
-                src={!profilePicture ? `https://avatars.dicebear.com/api/pixel-art/${username || user.get("username")}.svg` : profilePicture}
+                src={profilePicture ? profilePicture : `https://avatars.dicebear.com/api/pixel-art/${username || user.get("username")}.svg`}
                 onClick={() => logoutOnpress && logout()}
                 layout="fill"
             />
