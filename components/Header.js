@@ -8,7 +8,7 @@ function Header() {
     const { user } = useMoralis();
 
     return (
-        <div className={`sticky top-3 m-5 bg-black p-5 h-full rounded-xl shadow-2xl z-50 text-purple-500 border-b-2 border-purple-500`}>
+        <div className={`sticky top-3 m-5 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 p-5 h-full rounded-xl shadow-2xl z-50 text-purple-500 border-b-2 border-purple-500`}>
             <div className="grid grid-cols-5 lg:grid-cols-6 items-end lg:items-center">
                 <div className="relative h-24 w-24 mx-auto hidden lg:inline-grid">
                     <Image
