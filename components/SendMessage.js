@@ -11,7 +11,7 @@ function SendMessage({ endofMessagesRef }) {
     const [message, setMessage] = useState("");
     const newUserTyping = new Moralis.Object("UserTyping");
 
-    const sendMessage = (e) => {
+    const sendMessage = async (e) => {
         e.preventDefault();
 
         if (!message) return;
@@ -19,11 +19,13 @@ function SendMessage({ endofMessagesRef }) {
         const Messages = Moralis.Object.extend("Messages");
         const messages = new Messages();
 
-        messages.save({
-            message: message,
-            username: user.getUsername(),
-            ethAddress: user.get("ethAddress"),
-        }).then(() => {
+        messages.save
+            ({
+                message: message,
+                username: user.getUsername(),
+                ethAddress: user.get("ethAddress"),
+                profilePicture: await user.get("profilePicture"),
+            }).then(() => {
 
         },
             (error) => {
@@ -35,8 +37,6 @@ function SendMessage({ endofMessagesRef }) {
 
         setMessage("");
     }
-
-    
 
     const subscribeToTyping = async () => {
         let query = new Moralis.Query('UserTyping');

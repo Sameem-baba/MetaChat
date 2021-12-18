@@ -21,7 +21,7 @@ function Header() {
 
                 <div className="col-span-4 text-left lg:text-center">
                     <div className="relative h-48 w-48 lg:mx-auto border-purple-400 border-4 rounded-full">
-                        <Avatar logoutOnpress />
+                        <Avatar logoutOnpress profilePicture={user.get("profilePicture")}/>
                     </div>
                     <h1 className="font-alternate text-3xl">Welcome to the Metaverse</h1>
 

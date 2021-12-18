@@ -3,7 +3,7 @@ import { MoralisProvider } from "react-moralis";
 import { RecoilRoot } from "recoil";
 import { motion, AnimatePresence } from 'framer-motion';
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps }) {
   return (
     <MoralisProvider
       appId={process.env.NEXT_PUBLIC_APP_ID}
