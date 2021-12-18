@@ -11,17 +11,16 @@ import Modaluser from '../components/Modaluser';
 export default function Home() {
   const { isAuthenticated, isInitializing, isAuthenticating } = useMoralis();
 
+
+  if (isInitializing || isAuthenticating) {
+    return <Loader />
+  }
+  
   if (!isAuthenticated) {
     return <Login />
   }
 
-  if (isAuthenticating) {
-    return <Authenticate />
-  }
-
-  if (isInitializing) {
-    return <Loader />
-  }
+  
 
   return (
     <div className="h-screen overflow-y-scroll overflow-x-hidden scrollbar-thumb-violet-600 scrollbar-thin  bg-gradient-to-b from-cyan-400 to-purple-900 overflow-hidden">
