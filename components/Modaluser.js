@@ -14,10 +14,6 @@ function Modaluser() {
         if (loading) return;
 
         setLoading(true);
-
-        if (!usernameRef) return;
-
-        const username = usernameRef.current.value
         
         if (!username) return;
 
