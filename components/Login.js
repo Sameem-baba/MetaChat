@@ -63,7 +63,7 @@ function Login() {
                     Login to the METAVERSE with Wallet Connect
                 </button>
 
-                <p className="font-semibold text-white text-xl">Don't Have A Wallet? <span className="font-light border-b cursor-pointer">Click here</span></p>
+                <p className="font-semibold text-white text-xl">Don't Have A Wallet? <a href="https://metamask.io/" className="font-light border-b cursor-pointer">Click here</a></p>
             </div>
         </div>
     )
