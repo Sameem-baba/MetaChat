@@ -36,7 +36,7 @@ function Message({ message }) {
                 {message.get("username")}
             </p>
 
-            <TrashIcon onClick={deleteMessage} className="w-5 h-5 cursor-pointer hidden group-hover:inline-block order-first" />
+            <TrashIcon onClick={deleteMessage} className={`hidden ${isUserMessage && 'w-5 h-5 cursor-pointer hidden group-hover:inline-block order-first'}`}/>
         </div>
     )
 }
