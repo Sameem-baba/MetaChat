@@ -1,13 +1,20 @@
 import { useMoralis } from "react-moralis";
 import Avatar from "./Avatar";
 import TimeAgo from 'timeago-react';
+import { TrashIcon } from "@heroicons/react/outline";
 
 function Message({ message }) {
     const { user } = useMoralis();
     const isUserMessage = message.get("ethAddress") === user.get("ethAddress");
 
+    const deleteMessage = () => {
+        const messageId = message.id
+        
+        message.destroy(messageId)
+    }
+
     return (
-        <div className={`flex items-end space-x-2 relative ${
+        <div className={`flex group transition-all duration-500 ease-out items-center space-x-2 relative ${
             isUserMessage && 'justify-end'
             }`}>
             <div className={`relative h-8 w-8 ${
@@ -28,6 +35,8 @@ function Message({ message }) {
             <p className={`absolute -bottom-5 text-xs ${isUserMessage ? 'text-purple-400' : 'text-cyan-400'}`}>
                 {message.get("username")}
             </p>
+
+            <TrashIcon onClick={deleteMessage} className="w-5 h-5 cursor-pointer hidden group-hover:inline-block order-first" />
         </div>
     )
 }

@@ -20,8 +20,11 @@ function Messages() {
         [],
         {
             live: true,
+            onLiveDelete: (entity, all) => all.filter(e => e.id !== entity.id),
         }
     )
+
+    
 
     return (
         <div className="pb-44">
@@ -37,7 +40,7 @@ function Messages() {
 
             <div className="space-y-10 p-4">
                 {data.map((message) => (
-                    <Message key={message.id} message={message}/>
+                    <Message key={message.id} message={message} />
                 ))}
                 {typing &&
                     <div
