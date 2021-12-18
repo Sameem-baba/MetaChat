@@ -44,7 +44,8 @@ function Login() {
                     }
                 }}>
                     <Image
-                        src="https://links.papareact.com/3pi" className="object-cover rounded-full"
+                        src="https://links.papareact.com/3pi" 
+                        className="object-cover rounded-full"
                         height={200}
                         width={200}
                     />
@@ -63,7 +64,9 @@ function Login() {
                     Login to the METAVERSE with Wallet Connect
                 </button>
 
-                <p className="font-semibold text-white text-xl">Don't Have A Wallet? <a href="https://metamask.io/" className="font-light border-b cursor-pointer">Click here</a></p>
+                <p className="font-semibold text-white text-xl">
+                    Don't Have A Wallet? <a href="https://metamask.io/" className="font-light border-b cursor-pointer">Click here</a>
+                </p>
             </div>
         </div>
     )
