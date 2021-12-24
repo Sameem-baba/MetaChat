@@ -17,14 +17,14 @@ export default function Home() {
   if (!isAuthenticated) return <Login setModal={setModal} modal={modal} />;
 
   return (
-    <div className="h-screen overflow-y-scroll overflow-x-hidden scrollbar-thumb-violet-600 scrollbar-thin overflow-hidden">
+    <div className="">
       <Head>
         <title>Web 3.0</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="max-w-screen-2xl mx-auto">
         <AnimatePresence exitBeforeEnter>
-          <div className='h-screen overflow-y-scroll w-full bg-gradient-to-b from-cyan-400 to-purple-900 overflow-hidden scrollbar-hide'>
+          <div className='h-screen overflow-y-scroll overflow-x-hidden scrollbar-thumb-violet-600 scrollbar-thin w-full bg-gradient-to-b from-cyan-400 to-purple-900 overflow-hidden scrollbar-hide'>
             <motion.div
               variants={authVar}
               initial='hidden'

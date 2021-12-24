@@ -40,7 +40,7 @@ function Header() {
         <motion.div
           animate={{ y: isActive ? -10 : "calc(-100% + 4rem)" }}
           transition={{ stiffness: 150, damping: 10 }}
-          className=' sticky top-0 px-5 pt-8 pb-8 m-5 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 p-5 rounded-xl shadow-2xl z-40 text-purple-500 border-b-2 border-purple-500 rounded-b-2'
+          className='sticky top-0 py-8 mx-5 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 p-5 rounded-xl shadow-2xl z-40 text-purple-500 border-b-2 border-purple-500 rounded-b-2'
         >
           <motion.div
             variants={parentVar}
