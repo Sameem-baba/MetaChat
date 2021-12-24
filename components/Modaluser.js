@@ -46,7 +46,7 @@ function Modaluser() {
                         leaveTo="opacity-0"
                     >
                         <Dialog.Overlay
-                            className='fixed inset-0 bg-opacity-75 transition-opacity'
+                            className='fixed inset-0 bg-cyan-500 bg-opacity-50 transition-opacity'
                         />
                     </Transition.Child>
 

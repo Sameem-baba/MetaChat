@@ -1,30 +1,28 @@
-import Image from "next/image";
-import { css } from "@emotion/react";
-import { ClipLoader } from 'react-spinners';
+import { motion } from "framer-motion";
+import { variantsLeft, variantsRight } from "../animations/loaderVariants";
 
+const Loader = ({ getSequence }) => {
+  return (
+    <div className='h-screen w-full fixed top-0 left-0 z-40'>
+      <div className='relative w-full h-full'>
+        <motion.div
+          variants={variantsLeft}
+          initial='from'
+          exit='exit'
+          onAnimationComplete={() => {
+            getSequence();
+          }}
+          className='bg-gradient-to-b from-[#9E23A3] to-[#15151F] h-full w-1/2 absolute left-0'
+        />
+        <motion.div
+          variants={variantsRight}
+          initial='from'
+          exit='exit'
+          className='bg-gradient-to-b from-[#9E23A3] to-[#15151F] h-full w-1/2 absolute right-0'
+        />
+      </div>
+    </div>
+  );
+};
 
-function Loader() {
-    const override = css`
-        display: block;
-        margin: 0 auto;
-        border-color: red;
-    `;
-    return (
-        <div className="flex bg-gradient-to-tr from-cyan-400 to-purple-400 h-screen flex-col items-center pt-16 justify-center space-y-5">
-            <Image
-                src="https://links.papareact.com/3pi"
-                className="object-cover rounded-full"
-                height={300}
-                width={300}
-            />
-            
-            <ClipLoader
-                color={`#fff`}
-                css={override}
-                size={90}
-            />
-        </div>
-    )
-}
-
-export default Loader
+export default Loader;

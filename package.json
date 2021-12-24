@@ -9,6 +9,7 @@
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@walletconnect/web3-provider": "^1.7.0",
+    "emoji-mart": "^3.0.1",
     "firebase": "^9.6.1",
     "framer-motion": "^5.5.3",
     "next": "latest",
