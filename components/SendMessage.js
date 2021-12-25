@@ -60,6 +60,15 @@ function SendMessage({ endofMessagesRef }) {
         setOtherUserTyping(result)
     }
 
+    useEffect(() => {
+        subscribeToTyping()
+    }, [])
+
+    const onChangeText = (e) => {
+        setMessage(e.target.value);
+        Type(user.id)
+    }
+
     const Type = async (userId) => {
         const params = { userId: userId };
         const result = await Moralis.Cloud.run("getTypingUser", params);
@@ -78,21 +87,15 @@ function SendMessage({ endofMessagesRef }) {
             otherUserTyping.set('isTyping', false);
             otherUserTyping.save();
         }
-    }
 
-    const onChangeText = (e) => {
-        setMessage(e.target.value);
-        Type(user.id)
+        setOtherUserTyping(false);
     }
 
     useEffect(() => {
         setTimeout(() => {
             stopTyping();
-            setOtherUserTyping(false)
         }, 5000)
     }, [otherUserTyping]);
-
-    useEffect(() => subscribeToTyping(), [])
 
     return (
         <form className='flex w-11/12 fixed bottom-10 bg-[#27252F] backdrop-blur bg-opacity-40 px-6 py-3 rounded-full max-w-2xl shadow-xl'>
