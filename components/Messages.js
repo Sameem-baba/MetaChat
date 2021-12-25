@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { ByMoralis, useMoralis, useMoralisQuery } from 'react-moralis'
 import { useRecoilValue } from 'recoil';
 import { typingState } from '../atoms/TypeAtom';
 import Message from './Message';
 import SendMessage from './SendMessage';
-const MINS_DURATION = 60;
+const MINS_DURATION = 180;
 
 function Messages() {
     const { user, Moralis } = useMoralis();
@@ -23,8 +23,6 @@ function Messages() {
             onLiveDelete: (entity, all) => all.filter(e => e.id !== entity.id),
         }
     )
-
-    
 
     return (
         <div className="pb-44">

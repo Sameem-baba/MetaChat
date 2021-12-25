@@ -70,13 +70,14 @@ function SendMessage({ endofMessagesRef }) {
     }
 
     const Type = async (userId) => {
-        const params = { userId: userId };
+        const params = { userid: userId };
         const result = await Moralis.Cloud.run("getTypingUser", params);
         if (result.length > 0) {
             result[0].set('isTyping', true);
             result[0].save();
         } else {
             newUserTyping.set('userId', userId);
+            newUserTyping.set('username', user.getUsername());
             newUserTyping.set('isTyping', true);
             newUserTyping.save();
         }
@@ -87,8 +88,7 @@ function SendMessage({ endofMessagesRef }) {
             otherUserTyping.set('isTyping', false);
             otherUserTyping.save();
         }
-
-        setOtherUserTyping(false);
+        setOtherUserTyping(false)
     }
 
     useEffect(() => {

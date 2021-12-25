@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import Loader from "./Loader";
 import SignIn from "./SignIn";
 import { parent, child, modalParent } from "../animations/loginVariants";
+import Head from "next/head";
 
 const Login = ({ modal, setModal }) => {
   const { authenticate, isAuthenticating } = useMoralis();
@@ -34,6 +35,10 @@ const Login = ({ modal, setModal }) => {
 
   return (
     <div className='overflow-hidden'>
+      <Head>
+        <title>Metachat - Login</title>
+        <link rel="icon" href="/images/icon.png" />
+      </Head>
       <AnimatePresence>
         {!trigger && (
           <div className='absolute inset-0 z-50 flex items-center justify-center'>
