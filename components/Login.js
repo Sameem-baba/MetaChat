@@ -123,11 +123,44 @@ const Login = ({ modal, setModal }) => {
             <motion.div
               initial={{ opacity: 0, scale: 5 }}
               animate={{ opacity: reveal ? 1 : 0, scale: reveal ? 1 : 5 }}
-              className='overflow-hidden w-full h-full relative'
+              className='flex flex-col space-y-4 overflow-hidden w-full h-full relative'
             >
               <motion.button
                 disabled={isAuthenticating}
-                onClick={authenticate}
+                onClick={() => authenticate()}
+                whileTap={{ scale: !isAuthenticating ? 0.98 : 1 }}
+                className={`${
+                  isAuthenticating ? "" : ""
+                } relative p-4 rounded-lg inline-flex flex-row items-center cursor-pointer justify-center text-black bg-[#efab2c] text-lg font-bold space-x-2`}
+              >
+                <span className='hover' />
+                <span>
+                  <svg
+                    width='100%'
+                    height='100%'
+                    className='rotate-180 w-6 h-6'
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1'
+                    />
+                  </svg>
+                </span>
+                <span className='label'>{`${
+                  isAuthenticating
+                    ? "Authenticate with your wallet"
+                    : "Connect with a MetaMask"
+                }`}</span>
+              </motion.button>
+              <motion.button
+                disabled={isAuthenticating}
+                onClick={() => authenticate({ provider: "walletconnect" })}
                 whileTap={{ scale: !isAuthenticating ? 0.98 : 1 }}
                 className={`${
                   isAuthenticating ? "" : ""
@@ -155,7 +188,7 @@ const Login = ({ modal, setModal }) => {
                 <span className='label'>{`${
                   isAuthenticating
                     ? "Authenticate with your wallet"
-                    : "Connect with a wallet"
+                    : "Connect with a Wallect Connect"
                 }`}</span>
               </motion.button>
             </motion.div>

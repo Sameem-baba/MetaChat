@@ -9,7 +9,7 @@ function ChangeProfile() {
     const [opel, setOpel] = useRecoilState(modaluserState);
 
     return (
-        <div className="flex flex-col place-items-end space-y-4 text-sm absolute top-5 right-5 pr-3">
+        <div className="sm:flex flex-col hidden place-items-end space-y-4 text-sm absolute top-5 right-5 pr-3">
             <button disabled={isUserUpdating} onClick={() => setOpel(true)} className="bg-gradient-to-tr from-purple-600 to-cyan-500 shadow-2xl px-2 py-4 rounded-full text-white font-semibold  hover:bg-purple-400">
                 Change Your Username
             </button>

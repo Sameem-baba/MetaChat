@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import { useMoralis } from "react-moralis";
 import { useRecoilState } from "recoil";
 import { typingState } from "../atoms/TypeAtom";
-import { EmojiHappyIcon, PaperAirplaneIcon } from "@heroicons/react/outline"
-import { EmojiState } from "../atoms/EmojiAtom";
-import 'emoji-mart/css/emoji-mart.css'
-import { Picker } from 'emoji-mart'
 import { motion } from "framer-motion";
 
 
@@ -24,7 +20,7 @@ function SendMessage({ endofMessagesRef }) {
     "❤️",
   ]);
     const newUserTyping = new Moralis.Object("UserTyping");
-    const [show, handleShow] = useRecoilState(EmojiState);
+    
 
     const sendMessage = async (e) => {
         e.preventDefault();
