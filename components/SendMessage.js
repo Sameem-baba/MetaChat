@@ -88,6 +88,7 @@ function SendMessage({ endofMessagesRef }) {
     useEffect(() => {
         setTimeout(() => {
             stopTyping();
+            setOtherUserTyping(false)
         }, 5000)
     }, [otherUserTyping]);
 
