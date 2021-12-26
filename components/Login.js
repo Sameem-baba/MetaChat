@@ -59,7 +59,7 @@ const Login = ({ modal, setModal }) => {
       </AnimatePresence>
 
       <div className='bg-black relative '>
-        <div className='flex flex-col absolute z-30 h-5/6 items-center justify-center w-full space-y-8'>
+        <div className='flex flex-col absolute z-30 h-[100%] items-center justify-center w-full space-y-8'>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
