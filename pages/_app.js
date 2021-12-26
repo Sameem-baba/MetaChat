@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { MoralisProvider } from "react-moralis";
+import { Toaster } from "react-hot-toast";
 import { RecoilRoot } from "recoil";
-import { motion, AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,6 +11,15 @@ function MyApp({ Component, pageProps }) {
     >
       <RecoilRoot>
         <Component {...pageProps} />
+        <Toaster
+          toastOptions={{
+            style: {
+              background: "#9E23A3",
+              borderRadius: "25px",
+              color: "#fff",
+            },
+          }}
+        />
       </RecoilRoot>
     </MoralisProvider>
   )

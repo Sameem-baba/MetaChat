@@ -8,11 +8,18 @@ import Modal from '../components/Modal';
 import Modaluser from '../components/Modaluser';
 import { parent, authVar, headerVar } from "../animations/indexVariants";
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function Home() {
   const { isAuthenticated } = useMoralis();
   const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    toast.success("You have entered the Metaverse!");
+  }, [isAuthenticated]);
 
   if (!isAuthenticated) return <Login setModal={setModal} modal={modal} />;
 

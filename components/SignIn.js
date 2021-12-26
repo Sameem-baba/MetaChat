@@ -4,9 +4,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { modalChild } from "../animations/loginVariants";
+import toast from 'react-hot-toast';
 
 const SignIn = ({ isSignIn, setIsSignIn, setModal }) => {
-  const { signup, user, login } = useMoralis();
+  const { signup, user, login, authError } = useMoralis();
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +19,14 @@ const SignIn = ({ isSignIn, setIsSignIn, setModal }) => {
     if (isSignIn) {
       if (user) return;
       await login(username, password);
-      setModal(false);
-      router.push("/");
     } else {
-      signup(username, password, email);
+      signup(username, password, email, { profilePicture: `https://avatars.dicebear.com/api/pixel-art/${username}.svg`});
       setModal(false);
-      router.push("/");
+    }
+    if (authError) {
+      toast.error(authError.message);
+    } else {
+      setModal(false);
     }
   };
 
@@ -106,7 +109,7 @@ const SignIn = ({ isSignIn, setIsSignIn, setModal }) => {
           />
 
           <button
-            className={` relative p-2 rounded-lg inline-flex flex-row items-center justify-center text-black bg-[#efab2c] text-lg font-bold space-x-2 cursor-none`}
+            className={` relative p-2 rounded-lg inline-flex flex-row items-center justify-center text-black bg-[#efab2c] text-lg font-bold space-x-2 cursor-pointer`}
           >
             <span className='hover' />
             <span>
@@ -156,14 +159,14 @@ const SignIn = ({ isSignIn, setIsSignIn, setModal }) => {
           {isSignIn ? (
             <>
               <p>Don't have an account?</p>
-              <p onClick={() => setIsSignIn(false)} className='underline'>
+              <p onClick={() => setIsSignIn(false)} className='underline cursor-pointer'>
                 Sign up here
               </p>
             </>
           ) : (
             <>
               <p>Already have an account?</p>
-              <p onClick={() => setIsSignIn(true)} className='underline'>
+              <p onClick={() => setIsSignIn(true)} className='underline cursor-pointer'>
                 Sign in here
               </p>
             </>

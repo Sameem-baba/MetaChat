@@ -76,7 +76,7 @@ function Modaluser() {
                                             as='h3'
                                             className='text-md font-orbitron leading-6 font-bold text-gray-900'
                                         >
-                                            Enter a username (current - {user.getUsername()})
+                                            Enter a username (current - {user?.getUsername()})
                                         </Dialog.Title>
 
                                         <div className='mt-2'>

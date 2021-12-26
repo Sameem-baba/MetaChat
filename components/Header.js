@@ -104,7 +104,7 @@ function Header() {
                   </span>
                 </motion.div>
 
-                <Avatar logoutOnPress profilePicture={user.get("profilePicture")}/>
+                <Avatar logoutOnPress profilePicture={user?.get("profilePicture")}/>
               </div>
 
               <h1 className='text-3xl font-medium'>

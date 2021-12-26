@@ -57,7 +57,7 @@ function Messages() {
 
             <div ref={endofMessagesRef} className="text-center text-gray-400">
                 <p>
-                    You are upto date {user.getUsername()}! 🎉
+                    You are upto date {user?.getUsername()}! 🎉
                 </p>
             </div>
         </div>

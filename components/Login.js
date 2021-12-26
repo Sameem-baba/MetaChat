@@ -169,7 +169,7 @@ const Login = ({ modal, setModal }) => {
                 whileTap={{ scale: !isAuthenticating ? 0.98 : 1 }}
                 className={`${
                   isAuthenticating ? "" : ""
-                } relative p-4 rounded-lg inline-flex flex-row items-center justify-center text-black bg-[#efab2c] text-lg font-bold space-x-2 cursor-none`}
+                } relative p-4 rounded-lg inline-flex flex-row items-center justify-center text-black bg-[#efab2c] text-lg font-bold space-x-2 cursor-pointer`}
               >
                 <span className='hover' />
                 <span>
@@ -204,7 +204,7 @@ const Login = ({ modal, setModal }) => {
           >
             <p>Don't have a wallet?</p>
             <p
-              className='font-bold hover:text-[#efab2c] text-sm underline  leading-3'
+              className='font-bold hover:text-[#efab2c] text-sm underline cursor-pointer leading-3'
               onClick={() => setModal(true)}
             >
               Sign in with email and password
