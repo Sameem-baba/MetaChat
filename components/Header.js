@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useMoralis } from "react-moralis";
 import { itemVar, parentVar } from "../animations/headerVariant";
 import Avatar from "./Avatar";
 import ChangeProfile from "./ChangeProfile";
 
 function Header() {
-    const { user, logout } = useMoralis();
-    const [isActive, setIsActive] = useState(true);
-    const [hover, setHover] = useState(false);
-    const [direction, setDirection] = useState(0);
+  const { user, logout, account } = useMoralis();
+  const [isActive, setIsActive] = useState(true);
+  const [hover, setHover] = useState(false);
+  const [direction, setDirection] = useState(0);
+  
 
     return (
     <motion.div
@@ -84,7 +85,7 @@ function Header() {
                     Exit the
                   </span>
                   <span className='label z-50 font-bold leading-3 text-xl'>
-                    METAVERSE
+                    METACHAT
                   </span>
                   <span className='absolute'>
                     <svg
@@ -108,7 +109,7 @@ function Header() {
               </div>
 
               <h1 className='text-3xl font-medium'>
-                Welcome to the METAVERSE,
+                Welcome to the METACHAT,
               </h1>
               <h2 className='text-5xl font-bold truncate'>
                 {user?.getUsername()}

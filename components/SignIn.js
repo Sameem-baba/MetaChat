@@ -19,13 +19,9 @@ const SignIn = ({ isSignIn, setIsSignIn, setModal }) => {
     if (isSignIn) {
       if (user) return;
       await login(username, password);
+      setModal(false);
     } else {
       signup(username, password, email, { profilePicture: `https://avatars.dicebear.com/api/pixel-art/${username}.svg`});
-      setModal(false);
-    }
-    if (authError) {
-      toast.error(authError.message);
-    } else {
       setModal(false);
     }
   };

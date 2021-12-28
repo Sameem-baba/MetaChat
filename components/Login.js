@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import SignIn from "./SignIn";
 import { parent, child, modalParent } from "../animations/loginVariants";
 import Head from "next/head";
+import toast from "react-hot-toast";
 
 const Login = ({ modal, setModal }) => {
   const { authenticate, isAuthenticating } = useMoralis();
@@ -15,7 +16,7 @@ const Login = ({ modal, setModal }) => {
   const [reveal, setReveal] = useState(false);
 
   const [isSignIn, setIsSignIn] = useState(true);
-  const [metaverse, setMetaverse] = useState("METAVERSE");
+  const [metaverse, setMetaverse] = useState("METACHAT");
 
   const headTitle = Array.from(metaverse);
 

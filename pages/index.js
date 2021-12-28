@@ -10,9 +10,10 @@ import { parent, authVar, headerVar } from "../animations/indexVariants";
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import UserInfo from '../components/UserInfo';
 
 export default function Home() {
-  const { isAuthenticated } = useMoralis();
+  const { isAuthenticated, authError, userError } = useMoralis();
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
@@ -21,6 +22,18 @@ export default function Home() {
     toast.success("You have entered the Metaverse!");
   }, [isAuthenticated]);
 
+    useEffect(() => {
+    if (!authError) return;
+
+    toast.error(authError.message);
+    }, [authError]);
+  
+  useEffect(() => {
+    if (!userError) return;
+
+    toast.error(userError.message);
+    }, [userError]);
+  
   if (!isAuthenticated) return <Login setModal={setModal} modal={modal} />;
 
   return (
@@ -55,6 +68,8 @@ export default function Home() {
         <Modaluser />
         
         <Modal />
+
+        {/*<Sidebar />*/}
           
       </div>
     </div>

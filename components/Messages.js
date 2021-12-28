@@ -1,15 +1,18 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { ByMoralis, useMoralis, useMoralisQuery } from 'react-moralis'
 import { useRecoilValue } from 'recoil';
 import { typingState } from '../atoms/TypeAtom';
 import Message from './Message';
 import SendMessage from './SendMessage';
+import UserInfo from './UserInfo';
 const MINS_DURATION = 180;
 
 function Messages() {
     const { user, Moralis } = useMoralis();
     const typing = useRecoilValue(typingState);
     const endofMessagesRef = useRef(null);
+    const [messageid, setMessageid] = useState("");
+    const [userdata, setUserdata] = useState([]);
     const { data, isLoading, error } = useMoralisQuery(
         'Messages',
         (query) =>
@@ -24,6 +27,16 @@ function Messages() {
         }
     )
 
+    const getUserInfo = async (messageid) => {
+        const query = new Moralis.Query('Messages');
+        query.equalTo("objectId", messageid);
+        const results = await query.find();
+
+        setUserdata(results);
+    }
+
+    console.log(userdata)
+
     return (
         <div className="pb-44">
             <div className="my-4">
@@ -36,10 +49,13 @@ function Messages() {
                 />
             </div>
 
-            <div className="space-y-10 p-4">
+            <div className="space-y-10 p-4" >
                 {data.map((message) => (
-                    <Message key={message.id} message={message} />
+                    <div  onClick={() => getUserInfo(message.id)}>
+                        <Message key={message.id} message={message}/> 
+                    </div>
                 ))}
+                <UserInfo message={userdata} />
                 {typing &&
                     <div
                         className={`flex items-center justify-center space-x-2 relative`}
